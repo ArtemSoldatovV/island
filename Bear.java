@@ -4,5 +4,6 @@ public class Bear extends Predator{
         int[] pokh = {0, 80, 0, 0, 0, 40, 80, 80, 90, 70, 70, 50, 20, 10, 0};
         this.probability_of_killing_Herbivores = pokh;
     }
-    
+    @Override
+    public Predator reproduce(){return new Bear(0,0,0,0,0,0,new int[]{});}
 }
