@@ -1,44 +1,54 @@
 
 import java.util.concurrent.Exchanger;
+import java.util.concurrent.Semaphore;
 
-public class Multi_threading {
-    Exchanger<Boolean> exchanger_boo = new Exchanger<>();
-    Boolean program_works = true;
-    Boolean pause = false;
-    Exchanger<Map> exchanger_map = new Exchanger<>();
-    Map map = new Map();
+class Multi_threading implements Runnable {
+    private static Map map;
+    private int num;
+    private Logs log = new Logs();
 
+    private static Semaphore check_map = new Semaphore(2);
 
-    class Plant_growth implements Runnable{//растения
-        @Override
-        public void run() {
-            while(true){
-                try{
-                    Map map_e = map;
-                    map_e.Plants_height();
-                    map_e = exchanger_map.exchange(map_e);
-                }
-            catch (InterruptedException e) {}
-            }
-        }
+    Multi_threading(int width, int longitude , int num){
+        map = new Map(100,20);
+        this.num =num;
+        map.Animals_in_the_beginning();
     }
-
-
-    class withdrawal_of_islands implements Runnable{//вывод
-        @Override
-        public void run() {
-            Map map_e = map;
-            while(true){
+    @Override
+    public void run() {
+        while(true){
+            if (this.num == 0) {
+                try {
+                    check_map.acquire();
+                    map.Plants_height();
                     
-                    map_e.bypassing_sthe_map();
-                    map_e.draw_a_map(0,10,0,10);
-                
+
+                    check_map.release();
+
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);}
+                    check_map.release();
+            } else if (this.num == 1) {
+                try {
+                    check_map.acquire();
+                    map.bypassing_sthe_map();
+                    check_map.release();
+
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);}
+            } else if (this.num == 2) {
+                try {
+                        check_map.acquire();
+                        map.draw_a_map(0, 10, 0, 10);
+                        log.conclusion_logs();//вывод логов
+                        log.erase_logs();//стерание логов
+                        check_map.release();
+                    } catch (InterruptedException e) {
+                    throw new RuntimeException(e);}
             }
         }
     }
+    
 
-    void start() {
-        new Thread(new Plant_growth()).start();
-        new Thread(new withdrawal_of_islands()).start();
-      }
+
 }

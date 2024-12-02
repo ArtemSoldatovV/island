@@ -4,5 +4,6 @@ public class Wild_boar extends Herbivores{
         int[][] atoc = new int[][]{{8,50},{14,90}};
         this.additional_types_of_calories = atoc;
     }
-
+    @Override
+    public Herbivores reproduce(){return new Wild_boar(0,0,0,0,0,0,new int[][]{{}});}
 }

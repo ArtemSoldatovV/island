@@ -4,5 +4,6 @@ public class Goat extends Herbivores{
         int[][] atoc = new int[][]{{}};
         this.additional_types_of_calories = atoc;
     }
-
+    @Override
+    public Herbivores reproduce(){return new Goat(0,0,0,0,0,0,new int[][]{{}});}
 }

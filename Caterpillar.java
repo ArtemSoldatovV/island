@@ -4,5 +4,6 @@ public class Caterpillar extends Herbivores{
         int[][] atoc = new int[][]{{}};
         this.additional_types_of_calories = atoc;
     }
-
+    @Override
+    public Herbivores reproduce(){return new Caterpillar(0,0,0,0,0,0,new int[][]{{}});}
 }

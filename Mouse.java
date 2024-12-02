@@ -4,13 +4,6 @@ public class Mouse extends Herbivores {
         int[][] atoc = new int[][]{{14,90}};
         this.additional_types_of_calories = atoc;
     }
-
+    @Override
+    public Herbivores reproduce(){return new Mouse(0,0,0,0,0,0,new int[][]{{}});}
 }
-/*
-weight=60, maximum_density =140, maximum_density =3, calories=20, minimum_subsistence_calories=10,Number_of_animals=9
-weight=70, maximum_density =140, maximum_density =3, calories=30, minimum_subsistence_calories=15,Number_of_animals=10
-weight=40, maximum_density =50, maximum_density =2, calories=100, minimum_subsistence_calories=50,Number_of_animals=11
-weight=700, maximum_density =10, maximum_density =3, calories=200, minimum_subsistence_calories=100,Number_of_animals=12
-weight=1, maximum_density =200, maximum_density =4, calories=0.3, minimum_subsistence_calories=0.15,Number_of_animals=13
-weight=0.01, maximum_density =1000, maximum_density =0, calories=0, minimum_subsistence_calories=0,Number_of_animals=14
- */

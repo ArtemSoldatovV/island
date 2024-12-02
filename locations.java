@@ -23,7 +23,7 @@ public class locations {
         }
     }
 
-    public double get_Plants_weight(){return List_Plants.get(0).get_weight();}
+    public double get_Plants_weight(){return 1;}
     public int get_number_number_animals (int rr){return number_animals[rr];}
 
     public ArrayList <Herbivores> get_List_Herbivores(){return this.List_Herbivores;}

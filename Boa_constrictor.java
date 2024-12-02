@@ -4,4 +4,6 @@ public class Boa_constrictor extends Predator {
         int[] pokh = {0, 0, 15, 0, 0, 0, 0, 20, 40, 0, 0, 0, 0, 10, 0};
         this.probability_of_killing_Herbivores = pokh;
     }
+    @Override
+    public Predator reproduce(){return new Boa_constrictor(0,0,0,0,0,0,new int[]{});}
 }

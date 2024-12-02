@@ -29,7 +29,7 @@ abstract class animals_island {
     public void enter_calories(double calories){ this.calories = calories;}
     public int get_speed_in_cells(){return this.speed_in_cells;}
     public int get_maximum_density(){return this.maximum_density;}
-
+/*
     //кушать
     public locations eat( locations map){
         return map;
@@ -64,12 +64,12 @@ abstract class animals_island {
         list.add(nn);
         map_exit[x][y].enter_myList(list);
 
-         */
-        return map_exit;
+         
+        return map_exit;*//* 
     }
 
     //размножение
-    public locations reproduce(locations map, int my_number){
+    public locations reproduce(locations map, int my_number){*/
         /*
         Random r = new Random();
         boolean y_n = true;
@@ -88,7 +88,7 @@ abstract class animals_island {
             }
         }
 
-         */
+         *//*
         return map;
     }
 
@@ -99,6 +99,6 @@ abstract class animals_island {
             this.alive=false;
         }
         return map;
-    }
+    }*/
 
 }
